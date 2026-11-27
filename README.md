@@ -8,8 +8,8 @@ Static HTML, CSS and JS. No build step.
 
 | Path | What it is |
 |---|---|
-| `/` (`index.html`) | Founding membership landing page |
-| `/directions.html` | The three homepage directions side by side |
+| `/` (`index.html`) | The three homepage directions side by side (final) |
+| `/landing.html` | Founding membership landing page |
 | `/a.html` | Direction A · Journal |
 | `/b.html` | Direction B · Red room |
 | `/c.html` | Direction C · Index |
