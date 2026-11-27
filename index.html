@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mika · Founding membership</title>
+<meta name="description" content="Mika is a members' club in Rotterdam: chef-cooked meals, coached sessions and evenings at one long table. 120 founding places.">
+<link rel="stylesheet" href="css/base.css">
+<style>
+body{color:var(--red)}
+.nav{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);background:var(--cream);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.line{border-color:var(--rule)}
+.nav .wm{height:22px}
+.nav .mid{display:flex;gap:8px;align-items:center}
+.nav .dot{width:7px;height:7px;background:var(--red);animation:bl 1.6s infinite}
+@keyframes bl{50%{opacity:.25}}
+.nav .btn{height:34px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);padding:clamp(40px,6vw,80px) var(--pad) clamp(70px,8vw,110px);min-height:calc(100vh - 62px);align-items:center}
+.hero h1{font-size:clamp(64px,7.6vw,124px)}
+.hero h1 em{font-style:italic}
+.hero .lead{max-width:440px;margin:28px 0 34px;color:var(--ink);font-size:16px}
+.apply{max-width:470px;border:1px solid var(--red);background:var(--cream)}
+.apply .seg{display:grid;grid-template-columns:repeat(3,1fr)}
+.apply .seg label{position:relative;cursor:pointer;padding:12px 12px 11px;border-right:1px solid var(--red);border-bottom:1px solid var(--red)}
+.apply .seg label:last-child{border-right:0}
+.apply .seg input{position:absolute;opacity:0}
+.apply .seg b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1;text-transform:none;letter-spacing:0;margin-top:5px}
+.apply .seg s{opacity:.55;margin-right:4px}
+.apply .seg label:has(input:checked){background:var(--red);color:var(--cream)}
+.apply .row{display:flex}
+.apply input[type=email]{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:15px;color:var(--ink);padding:0 14px;height:52px;outline:0}
+.apply input[type=email]::placeholder{color:var(--red);opacity:.6}
+.apply button{background:var(--red);color:var(--cream);padding:0 20px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;transition:background .2s}
+.apply button:hover{background:var(--ink)}
+.apply.sent .row{display:none}
+.apply .ok{display:none;padding:16px 14px;color:var(--ink)}
+.apply.sent .ok{display:block}
+.meter{max-width:470px;margin-top:16px}
+.meter .bar{height:3px;background:var(--rule);margin-top:8px}
+.meter .bar i{display:block;height:100%;width:69%;background:var(--red)}
+.meter .t{display:flex;justify-content:space-between}
+
+.collage{position:relative;height:min(78vh,760px)}
+.collage figure{position:absolute;overflow:hidden}
+.collage .c1{left:0;top:0;width:62%;height:74%}
+.collage .c2{right:0;bottom:0;width:52%;height:58%;border:10px solid var(--cream)}
+.collage .c3{right:6%;top:4%;width:26%;aspect-ratio:1}
+.collage .slip{position:absolute;left:6%;bottom:4%;width:230px;background:var(--cream);border:1px solid var(--red)}
+.slip div{display:flex;justify-content:space-between;padding:9px 12px;border-top:1px solid var(--rule)}
+.slip div:first-child{border-top:0;background:var(--red);color:var(--cream)}
+
+/* strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--red);margin:0 var(--pad)}
+.strip div{padding:22px 20px;border-right:1px solid var(--rule);display:flex;align-items:baseline;gap:14px}
+.strip div:last-child{border-right:0}
+.strip b{font-family:var(--serif);font-weight:400;font-size:56px;line-height:1;letter-spacing:-.02em}
+
+.sec{padding:clamp(110px,12vw,180px) var(--pad) 0}
+.hd{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);align-items:end;margin-bottom:clamp(44px,5vw,70px)}
+.hd h2{font-size:clamp(50px,5.8vw,92px)}
+.hd h2 em{font-style:italic}
+.hd p{max-width:380px;justify-self:end;color:var(--ink)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+.step .im{aspect-ratio:4/5;overflow:hidden;position:relative}
+.step .im span{position:absolute;left:12px;top:12px;background:var(--cream);padding:5px 8px}
+.step h3{font-size:40px;margin:18px 0 10px}
+.step p{color:var(--ink);max-width:330px}
+
+.perks{display:grid;grid-template-columns:5fr 7fr;gap:var(--pad);align-items:start}
+.perks .im{aspect-ratio:4/5;overflow:hidden;position:sticky;top:90px}
+.perks ol{list-style:none;border-top:1px solid var(--red);counter-reset:p}
+.perks li{display:grid;grid-template-columns:70px 1fr auto;gap:18px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--rule)}
+.perks li::before{counter-increment:p;content:counter(p,upper-roman);font-family:var(--serif);font-size:26px}
+.perks h3{font-size:clamp(32px,3vw,44px)}
+.perks li p{color:var(--ink);margin-top:8px;max-width:440px}
+.perks .tag{white-space:nowrap}
+
+.band{margin-top:clamp(110px,12vw,180px);display:grid;grid-template-columns:1fr 1fr;background:var(--red);color:var(--cream)}
+.band .im{min-height:86vh;overflow:hidden}
+.band .tx{padding:var(--pad);display:flex;flex-direction:column;justify-content:space-between}
+.band h2{font-size:clamp(58px,6.6vw,108px);margin-top:18px}
+.band h2 em{font-style:italic}
+.band p{max-width:400px;margin-top:22px;font-size:16px}
+.band .list div{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(255,252,238,.5)}
+.band .btn{margin-top:24px;background:var(--cream);color:var(--red);border-color:var(--cream)}
+
+.price{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--red)}
+.pc{padding:28px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--red);min-height:470px}
+.pc:last-child{border-right:0}
+.pc.hi{background:var(--paper)}
+.pc .flag{align-self:flex-start;background:var(--red);color:var(--cream);padding:5px 8px}
+.pc h3{font-size:58px;margin-top:10px}
+.pc .pr{font-family:var(--serif);font-size:34px;color:var(--ink);line-height:1}
+.pc .pr s{color:var(--red);opacity:.5;font-size:22px;margin-left:8px}
+.pc ul{list-style:none;flex:1;margin-top:8px;color:var(--ink)}
+.pc li{padding:9px 0;border-top:1px solid var(--rule)}
+.pc .btn{align-self:flex-start}
+.pc.hi .btn{background:var(--red);color:var(--cream);border-color:var(--red)}
+.note{margin-top:14px;color:var(--ink);opacity:.8}
+
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+.voice{border-top:1px solid var(--red);padding-top:20px}
+.voice blockquote{font-family:var(--serif);font-size:clamp(26px,2.3vw,34px);line-height:1.08;margin:16px 0 22px}
+.voice .who{display:flex;gap:12px;align-items:center;color:var(--ink)}
+.voice .who i{width:44px;height:44px;overflow:hidden;display:block;flex:none}
+
+.faq{border-top:1px solid var(--red);max-width:980px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:var(--serif);font-size:clamp(24px,2.2vw,32px);line-height:1.1}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:22px;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--ink);max-width:640px;padding:0 0 24px}
+.faqwrap{display:grid;grid-template-columns:4fr 8fr;gap:var(--pad)}
+.faqwrap h2{font-size:clamp(50px,5.8vw,92px)}
+
+.final{text-align:center;padding:clamp(130px,14vw,210px) var(--pad) 70px}
+.final h2{font-size:clamp(70px,10vw,160px)}
+.final h2 em{font-style:italic}
+.final .apply{margin:44px auto 0;text-align:left}
+.final .meter{margin:16px auto 0}
+footer{padding:0 var(--pad) 50px}
+footer .wm{width:100%;height:auto;border-top:1px solid var(--red);padding-top:30px}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+.mcta{display:none}
+@media (max-width:900px){
+  .nav .mid{display:none}
+  .hero,.hd,.perks,.band,.faqwrap{grid-template-columns:1fr}
+  .hero{min-height:0}
+  .collage{height:110vw}
+  .hd p{justify-self:start}
+  .strip{grid-template-columns:1fr 1fr}.strip div:nth-child(2){border-right:0}.strip div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+  .strip b{font-size:42px}
+  .steps,.price,.voices{grid-template-columns:1fr}
+  .pc{border-right:0;border-bottom:1px solid var(--red);min-height:0}
+  .perks .im{position:static}
+  .perks li{grid-template-columns:44px 1fr}.perks .tag{grid-column:2;justify-self:start}
+  .band .im{min-height:60vh}
+  .apply .seg b{font-size:20px}
+  .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;justify-content:center;height:48px;align-items:center;background:var(--red);color:var(--cream);font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+}
+</style>
+</head>
+<body>
+<header class="nav cap" id="nav">
+  <a href="#top" aria-label="Mika"><svg class="wm" viewBox="0 0 2818 875"><use href="#wl"/></svg></a>
+  <div class="mid"><i class="dot"></i><span>Founding membership · 37 of 120 places left</span></div>
+  <a class="btn fill" href="#apply">Apply now</a>
+</header>
+
+<section class="hero" id="top">
+  <div>
+    <span class="cap reveal">Rotterdam · Opening 1 December 2026</span>
+    <h1 class="serif reveal" style="margin-top:22px">The club<br>that <em>feeds you.</em></h1>
+    <p class="lead reveal">Mika is a members' club built around a kitchen. Chef-cooked meals every week, coached sessions every morning and one long table every Thursday. 120 founding members keep their price for life.</p>
+    <form class="apply cap reveal" id="apply" onsubmit="return send(this)">
+      <div class="seg" role="radiogroup" aria-label="Membership">
+        <label><input type="radio" name="m" value="Table">Kitchen<b>Table</b>Free</label>
+        <label><input type="radio" name="m" value="Club" checked>Most members<b>Club</b><s>€59</s>€49 / mo</label>
+        <label><input type="radio" name="m" value="Full Club">Every room<b>Full Club</b><s>€129</s>€109</label>
+      </div>
+      <div class="row"><input type="email" required placeholder="Your email" aria-label="Email"><button type="submit">Apply ↗</button></div>
+      <div class="ok">You're on the list for <span class="pick">Club</span>. We'll email your founding invite before 1 December.</div>
+    </form>
+    <div class="meter cap reveal"><div class="t"><span>83 founding members</span><span>37 places left</span></div><div class="bar"><i></i></div></div>
+  </div>
+  <div class="collage reveal">
+    <figure class="c1"><img src="img/athlete.webp" alt="A member eating from a Mika container after training"></figure>
+    <figure class="c3"><img src="img/stack.webp" alt="Mika containers stacked"></figure>
+    <figure class="c2"><img src="img/hero-salmon.webp" alt="Miso salmon bowl on red"></figure>
+    <div class="slip cap"><div><span>After strength</span><span>07:45</span></div><div><span>Miso salmon · M</span><span>612 kcal</span></div><div><span>Protein</span><span>42 g</span></div></div>
+  </div>
+</section>
+
+<div class="strip cap">
+  <div><b>16</b><span>dishes cooked<br>every week</span></div>
+  <div><b>8</b><span>coached sessions<br>a week</span></div>
+  <div><b>4</b><span>evenings at<br>the table a month</span></div>
+  <div><b>1</b><span>kitchen, studio<br>and long table</span></div>
+</div>
+
+<section class="sec">
+  <div class="hd"><h2 class="serif reveal">How Mika<br><em>works.</em></h2><p class="reveal">One membership, one app, one place on the Maashaven. Use the kitchen alone, or all three rooms.</p></div>
+  <div class="steps">
+    <article class="step reveal"><div class="im"><img src="img/chicken.webp" alt="Chicken freekeh bowl"><span class="cap">The kitchen</span></div><h3 class="serif">Eat what's cooked for you</h3><p>Pick your dishes by Sunday 20:00. They arrive chilled on Tuesday and Friday, portioned to how you train.</p></article>
+    <article class="step reveal"><div class="im"><img src="img/kettlebell.webp" alt="Kettlebell training"><span class="cap">The studio</span></div><h3 class="serif">Train with people who show up</h3><p>Strength, mobility and the Sunday harbour run. Groups of twelve, real coaches, booked in one tap.</p></article>
+    <article class="step reveal"><div class="im"><img src="img/counter.webp" alt="Members sharing food"><span class="cap">The table</span></div><h3 class="serif">Sit down together</h3><p>Supper club every Thursday, chef's table once a month, and a guest seat for someone you'd like to bring.</p></article>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="hd"><h2 class="serif reveal">Why join<br><em>as a founder.</em></h2><p class="reveal">Founding membership closes when 120 places are taken or on 1 December, whichever comes first.</p></div>
+  <div class="perks">
+    <div class="im reveal"><img src="img/group.webp" alt="Mika founding members" style="object-position:30% 50%"></div>
+    <ol>
+      <li class="reveal"><div><h3 class="serif">Your price, for life</h3><p>Club at €49 instead of €59, Full Club at €109 instead of €129, for as long as you stay a member.</p></div><span class="tag cap">Save up to €240 a year</span></li>
+      <li class="reveal"><div><h3 class="serif">The founders' dinner</h3><p>One night only, on Friday 12 December, before the doors open to everyone else.</p></div><span class="tag cap">120 seats</span></li>
+      <li class="reveal"><div><h3 class="serif">First pick, every week</h3><p>Founders book sessions and supper seats 24 hours before everyone else.</p></div><span class="tag cap">Priority booking</span></li>
+      <li class="reveal"><div><h3 class="serif">Three guest passes</h3><p>Bring a friend to a session, a supper or both. On us, in your first three months.</p></div><span class="tag cap">Worth €75</span></li>
+      <li class="reveal"><div><h3 class="serif">Your name on the table</h3><p>Every founder is engraved on the long table in the Maashaven kitchen.</p></div><span class="tag cap">Permanent</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band">
+  <div class="im"><img src="img/supper.webp" alt="A long red table at a Mika supper"></div>
+  <div class="tx">
+    <div>
+      <span class="cap">For founding members only</span>
+      <h2 class="serif reveal">The founders'<br><em>dinner.</em></h2>
+      <p class="reveal">Six courses from our head chef, the whole kitchen open, and the first time all 120 founders sit at one table.</p>
+    </div>
+    <div class="cap">
+      <div class="list"><div><span>Date</span><span>Friday 12 December, 19:00</span></div><div><span>Place</span><span>Mika kitchen, Maashaven</span></div><div><span>Seats</span><span>One per founder, plus a guest</span></div></div>
+      <a class="btn" href="#apply">Claim my seat</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="hd"><h2 class="serif reveal">Founding<br><em>prices.</em></h2><p class="reveal">Monthly, no joining fee, cancel any time. Meals are paid per week at member prices, from €8.40.</p></div>
+  <div class="price cap">
+    <div class="pc reveal"><span>Kitchen only</span><h3 class="serif">Table</h3><span class="pr">Free</span><ul><li>Weekly meals at member price</li><li>Order by Sunday 20:00</li><li>One guest supper a quarter</li></ul><a class="btn" href="#apply">Apply for Table</a></div>
+    <div class="pc hi reveal"><span class="flag">Most founders</span><h3 class="serif">Club</h3><span class="pr">€49 / mo<s>€59</s></span><ul><li>Meals at member price</li><li>Two coached sessions a week</li><li>Sunday harbour run</li><li>One supper seat a month</li><li>Founders' dinner</li></ul><a class="btn" href="#apply" data-pick="Club">Apply for Club</a></div>
+    <div class="pc reveal"><span>Every room</span><h3 class="serif">Full Club</h3><span class="pr">€109 / mo<s>€129</s></span><ul><li>Ten meals a week included</li><li>Unlimited sessions</li><li>Every event, plus a guest</li><li>Chef's table priority</li><li>Founders' dinner</li></ul><a class="btn" href="#apply" data-pick="Full Club">Apply for Full Club</a></div>
+  </div>
+  <p class="note cap">Founding prices are locked for as long as your membership stays active.</p>
+</section>
+
+<section class="sec">
+  <div class="hd"><h2 class="serif reveal">From the<br><em>first members.</em></h2><p class="reveal">Our pilot group has been eating and training with us since September.</p></div>
+  <div class="voices">
+    <div class="voice reveal"><span class="cap">Club · Pilot member</span><blockquote>“I stopped thinking about lunch in October. That alone was worth it.”</blockquote><div class="who cap"><i><img src="img/athlete.webp" alt=""></i><span>Lotte, 31 · Kralingen</span></div></div>
+    <div class="voice reveal"><span class="cap">Full Club · Pilot member</span><blockquote>“I came for the food and stayed for the Sunday run and Thursday supper.”</blockquote><div class="who cap"><i><img src="img/kettlebell.webp" alt=""></i><span>Daan, 36 · Noord</span></div></div>
+    <div class="voice reveal"><span class="cap">Table · Pilot member</span><blockquote>“New in Rotterdam, and now I know twenty people by name.”</blockquote><div class="who cap"><i><img src="img/counter.webp" alt=""></i><span>Sara, 28 · Katendrecht</span></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="faqwrap">
+    <h2 class="serif reveal">Good<br><em>questions.</em></h2>
+    <div class="faq">
+      <details open><summary>Do I have to train to join?</summary><p>No. Table is a kitchen-only membership: weekly meals at member prices and a guest seat at supper now and then. Add sessions whenever you like.</p></details>
+      <details><summary>Where is Mika?</summary><p>The kitchen, studio and long table are on the Maashaven in Rotterdam-Zuid. Meals are delivered by electric van across Rotterdam on Tuesday and Friday.</p></details>
+      <details><summary>Can I pause or cancel?</summary><p>Yes, any week before Sunday 20:00, from the app. Pausing keeps your founding price; cancelling releases it to the waitlist.</p></details>
+      <details><summary>What if I have allergies or eat plant-based?</summary><p>Every dish lists its allergens, and at least four of the sixteen dishes each week are plant-based. Your profile filters out what you can't eat.</p></details>
+      <details><summary>When do I pay?</summary><p>Nothing until 1 December. We'll send your founding invite first, and your membership starts when you accept it.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <h2 class="serif reveal">Keep a seat<br><em>for yourself.</em></h2>
+  <form class="apply cap reveal" onsubmit="return send(this)">
+    <div class="seg" role="radiogroup" aria-label="Membership">
+      <label><input type="radio" name="m2" value="Table">Kitchen<b>Table</b>Free</label>
+      <label><input type="radio" name="m2" value="Club" checked>Most members<b>Club</b><s>€59</s>€49 / mo</label>
+      <label><input type="radio" name="m2" value="Full Club">Every room<b>Full Club</b><s>€129</s>€109</label>
+    </div>
+    <div class="row"><input type="email" required placeholder="Your email" aria-label="Email"><button type="submit">Apply ↗</button></div>
+    <div class="ok">You're on the list for <span class="pick">Club</span>. We'll email your founding invite before 1 December.</div>
+  </form>
+  <div class="meter cap"><div class="t"><span>83 founding members</span><span>37 places left</span></div><div class="bar"><i></i></div></div>
+</section>
+
+<footer class="cap">
+  <svg class="wm" viewBox="0 0 2818 875"><use href="#wl"/></svg>
+  <div class="row"><span>© 2026 Mika Club · Maashaven Oostzijde 12, Rotterdam</span><span>Instagram · Strava · hello@mika.club · Privacy</span></div>
+</footer>
+
+<a class="mcta" href="#apply">Apply for a founding place</a>
+
+<script src="js/base.js"></script>
+<script>
+function send(f){
+  var r=f.querySelector('input[type=radio]:checked');
+  f.querySelector('.pick').textContent=r?r.value:'Mika';
+  f.classList.add('sent');return false;
+}
+document.querySelectorAll('[data-pick]').forEach(function(a){a.addEventListener('click',function(){
+  var v=a.dataset.pick;document.querySelectorAll('#apply input[name=m]').forEach(function(i){i.checked=i.value===v});
+})});
+addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('line',scrollY>20)},{passive:true});
+</script>
+</body>
+</html>

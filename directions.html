@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mika Club · Three directions</title>
+<link rel="stylesheet" href="css/base.css">
+<style>
+body{color:var(--red)}
+header{display:flex;justify-content:space-between;padding:22px var(--pad)}
+.hero{text-align:center;padding:clamp(60px,9vw,120px) var(--pad) clamp(50px,6vw,80px)}
+.hero h1{font-size:clamp(70px,11vw,170px)}
+.hero h1 em{font-style:italic}
+.hero p{max-width:440px;margin:28px auto 0}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);padding:0 var(--pad) 120px}
+.opt .im{aspect-ratio:4/5;overflow:hidden}
+.opt img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.opt:hover img{transform:scale(1.04)}
+.opt .row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--red);margin-top:14px;padding-top:12px}
+.opt h2{font-size:52px}
+.opt p{color:var(--ink);margin-top:8px;max-width:360px}
+@media(max-width:860px){.opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="cap"><a class="ul" href="index.html">← Landing page</a><span>Mika Club · Concept directions</span><span>November 2026</span></header>
+<section class="hero">
+  <h1 class="serif">Eat. Train.<br><em>Gather.</em></h1>
+  <p class="cap">Mika as a premium members' club: meals, fitness and events. Red flash photography, cream paper, a sharp serif and square corners, in three directions.</p>
+</section>
+<section class="opts">
+  <a class="opt" href="a.html"><div class="im"><img src="img/hero-salmon.webp" alt=""></div><div class="row"><h2 class="serif">A · Journal</h2><span class="cap">Open ↗</span></div><p class="cap">Editorial and quiet. A big red serif name, a staggered photo wall, an events list on one red band.</p></a>
+  <a class="opt" href="b.html"><div class="im"><img src="img/athlete.webp" alt=""></div><div class="row"><h2 class="serif">B · Red room</h2><span class="cap">Open ↗</span></div><p class="cap">Poster-led. A red hero, then cream pages with full-bleed flash photography and the supper club as the hero moment.</p></a>
+  <a class="opt" href="c.html"><div class="im"><img src="img/stack.webp" alt=""></div><div class="row"><h2 class="serif">C · Index</h2><span class="cap">Open ↗</span></div><p class="cap">Shop-like and useful. Meals, sessions and evenings as tabs, square tags and a weekly timetable.</p></a>
+</section>
+<script src="js/base.js"></script>
+</body>
+</html>

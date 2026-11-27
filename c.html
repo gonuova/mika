@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mika Club · Option C · Index</title>
+<link rel="stylesheet" href="css/base.css">
+<style>
+body{background:#F7F4EC;color:var(--red)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px var(--pad);position:sticky;top:0;z-index:20;background:#F7F4EC}
+.nav .wm{height:22px}
+.nav .r{justify-self:end;display:flex;gap:18px;align-items:center}
+.nav .btn{height:34px}
+
+.idx{padding:clamp(40px,6vw,80px) var(--pad) 0}
+.tabs{display:flex;justify-content:center;gap:clamp(24px,4vw,64px);flex-wrap:wrap}
+.tabs button{font-family:var(--serif);font-size:clamp(54px,7.4vw,118px);line-height:1;letter-spacing:-.02em;color:var(--red);opacity:.28;transition:opacity .3s}
+.tabs button.on,.tabs button:hover{opacity:1}
+.tabs sup{font-size:13px;top:.3em}
+.sub{text-align:center;margin:22px auto 0;max-width:420px}
+.car{position:relative;margin-top:clamp(40px,5vw,64px)}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
+.card .im{aspect-ratio:4/5;background:#EEE8DA;overflow:hidden}
+.card img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover img{transform:scale(1.04)}
+.card .nm{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:14px}
+.card .nm small{display:block;color:var(--ink);opacity:.7;font-size:13px}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.card .add{margin-top:14px;width:100%;justify-content:center}
+.card .add.done{background:var(--red);color:var(--cream)}
+.car .ar{position:absolute;top:calc(50% - 60px);width:46px;height:46px;background:#F7F4EC;border:1px solid var(--red);font-size:20px;color:var(--red);z-index:2}
+.car .ar.l{left:-14px}.car .ar.r{right:-14px}
+
+.blk{padding:clamp(100px,12vw,170px) var(--pad) 0}
+.state{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.4vw,20px);align-items:end}
+.state h2{grid-column:1/8;font-size:clamp(50px,6vw,96px)}
+.state h2 em{font-style:italic}
+.state p{grid-column:9/13;color:var(--ink)}
+.mos{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.4vw,20px);margin-top:50px}
+.mos .a{grid-column:1/8;aspect-ratio:3/2}
+.mos .b{grid-column:8/13;aspect-ratio:auto}
+.mos .c{grid-column:1/5;aspect-ratio:1}
+.mos .d{grid-column:5/13;aspect-ratio:auto}
+.mos>div{overflow:hidden;position:relative}
+.mos .cap{position:absolute;left:12px;bottom:12px;background:#F7F4EC;padding:6px 9px}
+
+.week{margin-top:50px;border-top:1px solid var(--red)}
+.days{display:grid;grid-template-columns:repeat(7,1fr)}
+.day{border-right:1px solid var(--rule);min-height:300px;padding:14px 12px}
+.day:last-child{border-right:0}
+.day h4{text-transform:none;font-family:var(--serif);font-weight:400;font-size:34px;line-height:1;margin-bottom:16px}
+.slot{display:block;padding:10px;margin-bottom:8px;border:1px solid var(--red);transition:background .2s,color .2s}
+.slot:hover{background:var(--red);color:var(--cream)}
+.slot b{display:block;font-weight:400;font-family:var(--serif);font-size:20px;line-height:1.05;margin-top:4px;letter-spacing:0;text-transform:none}
+.slot.ev{background:var(--red);color:var(--cream)}
+.slot.ml{border-style:dashed}
+.legend{display:flex;gap:18px;margin-top:16px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border:1px solid var(--red);margin-right:6px;vertical-align:-1px}
+.legend .e::before{background:var(--red)}.legend .m::before{border-style:dashed}
+
+.feat{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(100px,12vw,170px);background:var(--red);color:var(--cream)}
+.feat .im{min-height:88vh;overflow:hidden}
+.feat .tx{padding:var(--pad);display:flex;flex-direction:column;justify-content:space-between}
+.feat h2{font-size:clamp(56px,6.4vw,104px)}
+.feat h2 em{font-style:italic}
+.feat .list{border-top:1px solid rgba(255,252,238,.5)}
+.feat .list div{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,252,238,.5)}
+.feat .btn{align-self:flex-start;background:var(--cream);color:var(--red);border-color:var(--cream);margin-top:24px}
+
+.cmp{margin-top:50px;width:100%;border-collapse:collapse}
+.cmp th,.cmp td{text-align:left;padding:14px 12px;border-top:1px solid var(--rule);font-weight:400}
+.cmp thead th{border-top:1px solid var(--red);vertical-align:bottom}
+.cmp thead th .serif{display:block;font-size:52px;margin:8px 0 6px}
+.cmp td{color:var(--ink)}
+.cmp td:first-child,.cmp th:first-child{color:var(--red);width:28%}
+.cmp .hi{background:var(--paper)}
+.cmp thead .hi .flag{display:inline-block;background:var(--red);color:var(--cream);padding:5px 8px}
+.cmp tfoot td{border-top:1px solid var(--red);padding-top:18px}
+.cmp .hi .btn{background:var(--red);color:var(--cream);border-color:var(--red)}
+
+footer{margin-top:clamp(100px,12vw,170px);padding:0 var(--pad) 90px}
+footer .top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px;border-top:1px solid var(--red);padding-top:22px}
+footer .top div{display:flex;flex-direction:column;gap:7px}
+footer .wm{width:100%;height:auto;margin-top:80px}
+
+@media (max-width:900px){
+  .row{grid-template-columns:repeat(2,1fr)}.row .card:nth-child(n+3){display:none}
+  .state h2,.state p{grid-column:1/-1}
+  .mos>div{grid-column:1/-1!important;aspect-ratio:4/3!important}
+  .days{grid-template-columns:1fr}.day{border-right:0;border-bottom:1px solid var(--rule);min-height:0}
+  .feat{grid-template-columns:1fr}.feat .im{min-height:60vh}
+  .cmp{font-size:12px}.cmp thead th .serif{font-size:30px}
+  footer .top{grid-template-columns:1fr 1fr}
+  
+}
+</style>
+</head>
+<body>
+<header class="nav cap">
+  <a href="#" class="ul">Menu</a>
+  <a href="#"><svg class="wm" viewBox="0 0 2818 875"><use href="#wl"/></svg></a>
+  <div class="r"><a href="#">Sign in</a><a class="btn fill" href="#join">Join</a></div>
+</header>
+
+<section class="idx" data-tabs>
+  <div class="tabs">
+    <button class="on" data-tab="eat">Meals<sup>16</sup></button>
+    <button data-tab="train">Sessions<sup>8</sup></button>
+    <button data-tab="gather">Evenings<sup>4</sup></button>
+  </div>
+  <p class="sub cap">Mika Club, Rotterdam. Chef-cooked meals, coached sessions and evenings at the table, for members.</p>
+
+  <div class="car">
+    <div class="row" data-pane="eat">
+      <article class="card"><div class="im"><img src="img/hero-salmon.webp" alt="Miso salmon bowl"></div><div class="nm"><span>Miso salmon bowl<small>612 kcal · 42 g protein</small></span><span>€8.40</span></div><div class="tags"><span class="tag">High protein</span><span class="tag">Dairy-free</span></div><button class="btn add" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'Added ✓':'Add to my week'">Add to my week</button></article>
+      <article class="card"><div class="im"><img src="img/harissa.webp" alt="Harissa cauliflower bowl"></div><div class="nm"><span>Harissa cauliflower<small>560 kcal · 24 g protein</small></span><span>€7.90</span></div><div class="tags"><span class="tag">Plant</span><span class="tag">Spicy</span></div><button class="btn add" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'Added ✓':'Add to my week'">Add to my week</button></article>
+      <article class="card"><div class="im"><img src="img/curry.webp" alt="Green curry"></div><div class="nm"><span>Thai green curry<small>580 kcal · 32 g protein</small></span><span>€8.40</span></div><div class="tags"><span class="tag">Gluten-free</span></div><button class="btn add" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'Added ✓':'Add to my week'">Add to my week</button></article>
+      <article class="card"><div class="im"><img src="img/mussels.webp" alt="Mussels on ice"></div><div class="nm"><span>Mussels & saffron<small>520 kcal · 38 g protein</small></span><span>€8.40</span></div><div class="tags"><span class="tag">New</span><span class="tag">Under 600</span></div><button class="btn add" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'Added ✓':'Add to my week'">Add to my week</button></article>
+    </div>
+    <div class="row" data-pane="train" hidden>
+      <article class="card"><div class="im"><img src="img/kettlebell.webp" alt="Strength session"></div><div class="nm"><span>Strength<small>Mon · Wed · Fri 07:00</small></span><span>45 min</span></div><div class="tags"><span class="tag">Max 12</span><span class="tag">All levels</span></div><button class="btn add">Book a spot</button></article>
+      <article class="card"><div class="im"><img src="img/mobility.webp" alt="Mobility class"></div><div class="nm"><span>Mobility<small>Tue · Sat 08:00</small></span><span>50 min</span></div><div class="tags"><span class="tag">Recovery</span></div><button class="btn add">Book a spot</button></article>
+      <article class="card"><div class="im"><img src="img/runclub.webp" alt="Run club"></div><div class="nm"><span>Harbour Run<small>Sun 08:30 · 8 km</small></span><span>Free</span></div><div class="tags"><span class="tag">Social</span><span class="tag">Breakfast after</span></div><button class="btn add">Join the run</button></article>
+      <article class="card"><div class="im"><img src="img/athlete.webp" alt="Athlete eating after training"></div><div class="nm"><span>Fuel check-in<small>Monthly, 1:1</small></span><span>20 min</span></div><div class="tags"><span class="tag">Coach</span><span class="tag">Portions</span></div><button class="btn add">Book a check-in</button></article>
+    </div>
+    <div class="row" data-pane="gather" hidden>
+      <article class="card"><div class="im"><img src="img/supper.webp" alt="Supper club"></div><div class="nm"><span>Supper Club № 07<small>Thu 04.12 · 19:30</small></span><span>6 left</span></div><div class="tags"><span class="tag">24 seats</span><span class="tag">Members first</span></div><button class="btn add">Reserve</button></article>
+      <article class="card"><div class="im"><img src="img/chef.webp" alt="Chef plating"></div><div class="nm"><span>Chef's Table<small>Thu 11.12 · 18:00</small></span><span>8 seats</span></div><div class="tags"><span class="tag">Full Club</span></div><button class="btn add">Request a seat</button></article>
+      <article class="card"><div class="im"><img src="img/quay.webp" alt="Members on the quay"></div><div class="nm"><span>Long lunch<small>Sat 20.12 · 12:00</small></span><span>12 left</span></div><div class="tags"><span class="tag">After mobility</span></div><button class="btn add">Reserve</button></article>
+      <article class="card"><div class="im"><img src="img/counter.webp" alt="Members sharing food"></div><div class="nm"><span>Bring a friend<small>Every Friday</small></span><span>2 guests</span></div><div class="tags"><span class="tag">Guest pass</span></div><button class="btn add">Invite</button></article>
+    </div>
+    <button class="ar l" aria-label="Previous">←</button><button class="ar r" aria-label="Next">→</button>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="state">
+    <h2 class="serif reveal">Less a subscription.<br><em>More a place to belong.</em></h2>
+    <p class="reveal">The kitchen cooks for you twice a week. The studio trains with you every morning. And once a month, everyone sits down together.</p>
+  </div>
+  <div class="mos">
+    <div class="a reveal"><img src="img/group.webp" alt="Mika Club members"><span class="cap">The members</span></div>
+    <div class="b reveal"><img src="img/stack.webp" alt="Stacked Mika containers"><span class="cap">The week, stacked</span></div>
+    <div class="c reveal"><img src="img/chicken.webp" alt="Chicken freekeh bowl"><span class="cap">Chicken & freekeh</span></div>
+    <div class="d reveal" style="aspect-ratio:16/9"><img src="img/van.webp" alt="Mika electric van in Rotterdam"><span class="cap">Delivered Tue & Fri</span></div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="state">
+    <h2 class="serif reveal">A week<br><em>at the club.</em></h2>
+    <p class="reveal">Every slot is bookable from the app. Meals arrive on Tuesday and Friday; everything else happens at Maashaven.</p>
+  </div>
+  <div class="week cap reveal">
+    <div class="days">
+      <div class="day"><h4>Mon</h4><a class="slot" href="#">07:00<b>Strength</b></a><a class="slot ml" href="#">All day<b>Kitchen cooks</b></a></div>
+      <div class="day"><h4>Tue</h4><a class="slot" href="#">08:00<b>Mobility</b></a><a class="slot ml" href="#">17–21<b>Meals arrive</b></a></div>
+      <div class="day"><h4>Wed</h4><a class="slot" href="#">07:00<b>Strength</b></a><a class="slot" href="#">19:00<b>Intervals</b></a></div>
+      <div class="day"><h4>Thu</h4><a class="slot ml" href="#">All day<b>Kitchen cooks</b></a><a class="slot ev" href="#">19:30<b>Supper Club</b></a></div>
+      <div class="day"><h4>Fri</h4><a class="slot" href="#">07:00<b>Strength</b></a><a class="slot ml" href="#">17–21<b>Meals arrive</b></a></div>
+      <div class="day"><h4>Sat</h4><a class="slot" href="#">08:00<b>Mobility</b></a><a class="slot ev" href="#">12:00<b>Long lunch</b></a></div>
+      <div class="day"><h4>Sun</h4><a class="slot" href="#">08:30<b>Harbour Run</b></a><a class="slot ml" href="#">by 20:00<b>Plan next week</b></a></div>
+    </div>
+    <div class="legend"><span>Session</span><span class="m">Kitchen</span><span class="e">Evening</span></div>
+  </div>
+</section>
+
+<section class="feat">
+  <div class="im"><img src="img/supper.webp" alt="Supper club table"></div>
+  <div class="tx">
+    <div><span class="cap">Next evening</span><h2 class="serif reveal" style="margin-top:18px">Supper Club<br><em>№ 07.</em></h2></div>
+    <div class="cap">
+      <div class="list"><div><span>Menu</span><span>Mussels, saffron & fennel</span></div><div><span>Date</span><span>Thursday 4 December, 19:30</span></div><div><span>Place</span><span>Mika kitchen, Maashaven</span></div><div><span>Seats</span><span>6 of 24 left</span></div></div>
+      <a class="btn" href="#join">Reserve my seat</a>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="join">
+  <div class="state">
+    <h2 class="serif reveal">Membership.<br><em>Monthly, no fee to join.</em></h2>
+    <p class="reveal">Start with the kitchen and add the studio when you're ready. Pause or change before Sunday 20:00.</p>
+  </div>
+  <table class="cmp cap reveal">
+    <thead><tr><th></th><th>Kitchen only<span class="serif">Table</span>€0 / month</th><th class="hi"><span class="flag">Most members</span><span class="serif">Club</span>€59 / month</th><th>Every room<span class="serif">Full Club</span>€129 / month</th></tr></thead>
+    <tbody>
+      <tr><td>Meals</td><td>Member price</td><td class="hi">Member price</td><td>10 a week included</td></tr>
+      <tr><td>Sessions</td><td>—</td><td class="hi">2 a week</td><td>Unlimited</td></tr>
+      <tr><td>Harbour Run</td><td>—</td><td class="hi">Every Sunday</td><td>Every Sunday</td></tr>
+      <tr><td>Supper Club</td><td>Guest, once a quarter</td><td class="hi">1 seat a month</td><td>Every event + a guest</td></tr>
+      <tr><td>Chef's Table</td><td>—</td><td class="hi">Waitlist</td><td>Priority</td></tr>
+    </tbody>
+    <tfoot><tr><td></td><td><a class="btn" href="#">Start eating</a></td><td class="hi"><a class="btn" href="#">Apply for Club</a></td><td><a class="btn" href="#">Apply for Full Club</a></td></tr></tfoot>
+  </table>
+</section>
+
+<footer class="cap">
+  <div class="top">
+    <div><span>Mika Club</span><span style="color:var(--ink);text-transform:none;font-size:14px;letter-spacing:0;max-width:300px">Eat well, train together, gather at the table. Maashaven Oostzijde 12, Rotterdam.</span></div>
+    <div><span>Club</span><a href="#">Meals</a><a href="#">Sessions</a><a href="#">Evenings</a></div>
+    <div><span>Members</span><a href="#">Sign in</a><a href="#">The app</a><a href="#">Guest pass</a></div>
+    <div><span>Follow</span><a href="#">Instagram</a><a href="#">Strava</a><a href="#">hello@mika.club</a></div>
+  </div>
+  <svg class="wm" viewBox="0 0 2818 875"><use href="#wl"/></svg>
+</footer>
+
+<nav class="optbar"><a href="directions.html">All</a><a href="a.html">A · Journal</a><a href="b.html">B · Red room</a><a class="on" href="c.html">C · Index</a></nav>
+<script src="js/base.js"></script>
+<script>(function(){var t=[].slice.call(document.querySelectorAll('[data-tab]'));
+function go(d){var i=t.findIndex(function(x){return x.classList.contains('on')});t[(i+d+t.length)%t.length].click()}
+document.querySelector('.ar.l').onclick=function(){go(-1)};document.querySelector('.ar.r').onclick=function(){go(1)};})();</script>
+</body>
+</html>

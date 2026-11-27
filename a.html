@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mika Club · Option A · Journal</title>
+<link rel="stylesheet" href="css/base.css">
+<style>
+body{color:var(--red)}
+.nav{display:flex;justify-content:space-between;align-items:flex-start;padding:22px var(--pad);position:relative;z-index:5}
+.nav .id b{display:block;font-weight:400}
+.nav .id span{opacity:.75}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav sup{font-size:8px;top:-.35em;position:relative}
+
+.hero{text-align:center;padding:clamp(70px,11vw,150px) var(--pad) clamp(70px,9vw,120px)}
+.hero h1{font-size:clamp(76px,13vw,196px)}
+.hero h1 em{font-style:italic}
+.hero p{max-width:330px;margin:34px auto 0}
+.hero .ul{display:inline-block;margin-top:40px}
+
+.grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:clamp(14px,2.2vw,30px);padding:0 var(--pad)}
+.grid .col{display:flex;flex-direction:column;gap:clamp(14px,2.2vw,30px)}
+.grid .col:nth-child(2){margin-top:clamp(40px,6vw,90px)}
+.grid .col:nth-child(3){margin-top:clamp(10px,2vw,30px)}
+.grid figure{overflow:hidden}
+.grid figure .im{overflow:hidden}
+.grid figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.grid figure:hover img{transform:scale(1.035)}
+.grid figcaption{display:flex;justify-content:space-between;padding-top:9px}
+.r45{aspect-ratio:4/5}.r11{aspect-ratio:1}.r32{aspect-ratio:3/2}.r34{aspect-ratio:3/4}
+
+.sec{padding:clamp(90px,11vw,160px) var(--pad)}
+.lede{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);align-items:end;margin-bottom:clamp(50px,6vw,80px)}
+.lede h2{font-size:clamp(46px,5.4vw,80px)}
+.lede p{max-width:380px;justify-self:end;color:var(--ink)}
+
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--red)}
+.three article{padding:26px 26px 0 0;border-right:1px solid var(--rule)}
+.three article+article{padding-left:26px}
+.three article:last-child{border-right:0}
+.three h3{font-size:clamp(64px,7vw,108px);margin:18px 0 22px}
+.three h3 sup{font-size:12px}
+.three p{color:var(--ink);max-width:300px}
+.three ul{list-style:none;margin:22px 0 28px}
+.three li{padding:9px 0;border-top:1px solid var(--rule);display:flex;justify-content:space-between}
+.three .im{aspect-ratio:4/5;overflow:hidden}
+
+.band{background:var(--red);color:var(--cream)}
+.band .lede p{color:var(--cream);opacity:.9}
+.ev{border-top:1px solid rgba(255,252,238,.5)}
+.ev a{display:grid;grid-template-columns:150px 1fr 1fr 150px 120px;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(255,252,238,.5);transition:padding .3s}
+.ev a:hover{padding-left:14px}
+.ev .d{font-family:var(--serif);font-size:44px;line-height:1}
+.ev .d small{font-family:var(--sans);font-size:11px;letter-spacing:.06em;display:block;margin-top:6px}
+.ev .t{font-family:var(--serif);font-size:30px;line-height:1.05;text-transform:none;letter-spacing:-.01em}
+.ev .th{aspect-ratio:3/2;width:120px;overflow:hidden;justify-self:end}
+.ev .go{justify-self:end}
+
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.split .im{overflow:hidden}
+.split .tx{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:var(--pad)}
+.split h2{font-size:clamp(52px,6vw,92px);margin:20px 0 26px}
+.split p{max-width:360px;color:var(--ink)}
+.slip{margin-top:40px;width:min(340px,100%);border:1px solid var(--red);text-align:left;background:var(--cream)}
+.slip div{display:flex;justify-content:space-between;padding:11px 14px;border-top:1px solid var(--rule)}
+.slip div:first-child{border-top:0;background:var(--red);color:var(--cream)}
+
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--red)}
+.tier{padding:28px;display:flex;flex-direction:column;min-height:520px;border-right:1px solid var(--red)}
+.tier:last-child{border-right:0}
+.tier.hi{background:var(--paper)}
+.tier .flag{align-self:flex-start;background:var(--red);color:var(--cream);padding:5px 8px}
+.tier h3{font-size:58px;margin:26px 0 8px}
+.tier .pr{font-family:var(--serif);font-size:30px}
+.tier ul{list-style:none;margin:26px 0;flex:1}
+.tier li{padding:10px 0;border-top:1px solid var(--rule);color:var(--ink)}
+.tier .btn{align-self:flex-start}
+.tier.hi .btn{background:var(--red);color:var(--cream);border-color:var(--red)}
+
+.wide{aspect-ratio:21/9;overflow:hidden;margin:0 var(--pad)}
+.wcap{display:flex;justify-content:space-between;padding:10px var(--pad) 0}
+
+.close{text-align:center;padding:clamp(110px,14vw,200px) var(--pad) 60px}
+.close h2{font-size:clamp(70px,11vw,170px)}
+.close form{display:flex;max-width:420px;margin:44px auto 0;border-bottom:1px solid var(--red)}
+.close input{flex:1;background:none;border:0;font:inherit;font-size:15px;color:var(--red);padding:12px 0;outline:0}
+.close input::placeholder{color:var(--red);opacity:.6}
+footer{padding:0 var(--pad) 80px}
+footer .big{color:var(--red);font-size:clamp(90px,22vw,330px);padding-top:30px;border-top:1px solid var(--red)}
+footer .big .wm{width:100%;height:auto}
+footer .row{display:flex;justify-content:space-between;margin-top:22px;flex-wrap:wrap;gap:12px}
+
+@media (max-width:860px){
+  .nav ul{display:none}
+  .grid{grid-template-columns:1fr 1fr}.grid .col:nth-child(3){display:none}
+  .lede,.split{grid-template-columns:1fr}
+  .lede p{justify-self:start}
+  .three,.tiers{grid-template-columns:1fr}
+  .three article{padding:26px 0;border-right:0;border-bottom:1px solid var(--rule)}.three article+article{padding-left:0}
+  .tier{border-right:0;border-bottom:1px solid var(--red);min-height:0}
+  .ev a{grid-template-columns:90px 1fr;row-gap:6px}.ev .pl,.ev .th,.ev .go{display:none}
+  .split .im{height:70vh}
+  .wide{aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+<header class="nav cap">
+  <div class="id"><b>Mika Club</b><span>Eat · Train · Gather — Rotterdam</span></div>
+  <ul>
+    <li><a href="#eat">Eat<sup>16</sup></a></li>
+    <li><a href="#train">Train<sup>8</sup></a></li>
+    <li><a href="#gather">Gather<sup>4</sup></a></li>
+    <li><a class="ul" href="#join">Apply for membership ↗</a></li>
+  </ul>
+</header>
+
+<section class="hero">
+  <h1 class="serif reveal">The Mika Club</h1>
+  <p class="cap reveal">A members' club in Rotterdam for people who eat well, train together and gather at one long table.</p>
+  <a class="cap ul reveal" href="#join">Membership opens 1 December</a>
+</section>
+
+<section class="grid">
+  <div class="col">
+    <figure class="reveal"><div class="im r45"><img src="img/athlete.webp" alt="A member eating from a Mika container on a red stool after training"></div><figcaption class="cap"><span>Post-session · Tuesday</span><span>01</span></figcaption></figure>
+    <figure class="reveal"><div class="im r11"><img src="img/mussels.webp" alt="Mussels on ice on a red table"></div><figcaption class="cap"><span>Zeeland mussels · Supper club</span><span>04</span></figcaption></figure>
+  </div>
+  <div class="col">
+    <figure class="reveal"><div class="im r11"><img src="img/hero-salmon.webp" alt="Miso salmon bowl on red"></div><figcaption class="cap"><span>Miso salmon · Monday batch</span><span>02</span></figcaption></figure>
+    <figure class="reveal"><div class="im r34"><img src="img/stack.webp" alt="Five Mika containers with red sleeves"></div><figcaption class="cap"><span>Your week, stacked</span><span>05</span></figcaption></figure>
+  </div>
+  <div class="col">
+    <figure class="reveal"><div class="im r34"><img src="img/kettlebell.webp" alt="A member training with a kettlebell against a red wall"></div><figcaption class="cap"><span>Strength · Maashaven studio</span><span>03</span></figcaption></figure>
+    <figure class="reveal"><div class="im r45"><img src="img/hand.webp" alt="A hand holding a bowl of grain salad"></div><figcaption class="cap"><span>Beetroot freekeh · to go</span><span>06</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" id="eat">
+  <div class="lede">
+    <h2 class="serif reveal">Three things,<br><em>every week.</em></h2>
+    <p class="reveal">Membership is one rhythm: chef-cooked meals in your fridge, sessions with people who show up, and a seat at the table once a month.</p>
+  </div>
+  <div class="three">
+    <article class="reveal">
+      <span class="cap">I · Eat</span>
+      <h3 class="serif">Eat<sup>16</sup></h3>
+      <p>Sixteen dishes cooked every Monday and Thursday at our kitchen, portioned to how you train.</p>
+      <ul class="cap"><li><span>Meals a week</span><span>6 – 21</span></li><li><span>Member price</span><span>from €8.40</span></li></ul>
+      <div class="im"><img src="img/chicken.webp" alt="Chicken and freekeh bowl"></div>
+    </article>
+    <article class="reveal" id="train">
+      <span class="cap">II · Train</span>
+      <h3 class="serif">Train<sup>8</sup></h3>
+      <p>Eight small-group sessions a week: strength, mobility and the Sunday harbour run. Coached, never crowded.</p>
+      <ul class="cap"><li><span>Group size</span><span>max 12</span></li><li><span>Studio</span><span>Maashaven</span></li></ul>
+      <div class="im"><img src="img/mobility.webp" alt="Morning mobility class"></div>
+    </article>
+    <article class="reveal" id="gather">
+      <span class="cap">III · Gather</span>
+      <h3 class="serif">Gather<sup>4</sup></h3>
+      <p>Four evenings a month: supper club, chef's table, a talk, a long run and a longer breakfast.</p>
+      <ul class="cap"><li><span>Seats</span><span>24 a night</span></li><li><span>Guests</span><span>one per month</span></li></ul>
+      <div class="im"><img src="img/counter.webp" alt="Two members sharing food at a steel counter"></div>
+    </article>
+  </div>
+</section>
+
+<section class="sec band">
+  <div class="lede">
+    <h2 class="serif reveal">At the club<br><em>this month.</em></h2>
+    <p class="reveal">Members reserve first. Two guest seats open each Friday.</p>
+  </div>
+  <div class="ev cap">
+    <a href="#join" class="reveal"><span class="d">04.12<small>Thu · 19:30</small></span><span class="t">Supper Club № 07 — Mussels & fennel</span><span class="pl">Mika kitchen, Maashaven</span><span>6 of 24 seats left</span><span class="th"><img src="img/supper.webp" alt=""></span></a>
+    <a href="#join" class="reveal"><span class="d">07.12<small>Sun · 08:30</small></span><span class="t">Harbour Run — 8 km, then breakfast</span><span class="pl">Start at Hotel New York</span><span>Open to all members</span><span class="th"><img src="img/runclub.webp" alt=""></span></a>
+    <a href="#join" class="reveal"><span class="d">11.12<small>Thu · 18:00</small></span><span class="t">Chef's Table — winter menu preview</span><span class="pl">The pass, 8 seats</span><span>Full Club priority</span><span class="th"><img src="img/chef.webp" alt=""></span></a>
+    <a href="#join" class="reveal"><span class="d">20.12<small>Sat · 10:00</small></span><span class="t">Mobility & long lunch</span><span class="pl">Maashaven studio</span><span>12 spots</span><span class="th"><img src="img/quay.webp" alt=""></span></a>
+  </div>
+</section>
+
+<section class="split">
+  <div class="im"><img src="img/macro.webp" alt="Close-up of miso salmon over sesame rice"></div>
+  <div class="tx">
+    <span class="cap">Dish of the week</span>
+    <h2 class="serif reveal">Cooked at six.<br><em>Eaten by one.</em></h2>
+    <p class="reveal">Miso-glazed Noordzee salmon over sesame rice. On every member's plan this week, in S, M or L.</p>
+    <div class="slip cap reveal">
+      <div><span>Miso salmon bowl</span><span>M</span></div>
+      <div><span>Energy</span><span>612 kcal</span></div>
+      <div><span>Protein</span><span>42 g</span></div>
+      <div><span>Member price</span><span>€8.40</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="join">
+  <div class="lede">
+    <h2 class="serif reveal">Membership,<br><em>three ways.</em></h2>
+    <p class="reveal">Monthly, no joining fee. Pause or change your membership any week before Sunday 20:00.</p>
+  </div>
+  <div class="tiers cap">
+    <div class="tier reveal">
+      <span>Table</span>
+      <h3 class="serif">Table</h3>
+      <span class="pr">€0 / month</span>
+      <ul><li>Weekly meals at member price</li><li>Order by Sunday 20:00</li><li>Guest seat at one supper a quarter</li></ul>
+      <a class="btn" href="#">Start eating</a>
+    </div>
+    <div class="tier hi reveal">
+      <span class="flag">Most members</span>
+      <h3 class="serif">Club</h3>
+      <span class="pr">€59 / month</span>
+      <ul><li>Meals at member price</li><li>Two coached sessions a week</li><li>Sunday harbour run</li><li>One supper club seat a month</li></ul>
+      <a class="btn" href="#">Apply for Club</a>
+    </div>
+    <div class="tier reveal">
+      <span>All of it</span>
+      <h3 class="serif">Full Club</h3>
+      <span class="pr">€129 / month</span>
+      <ul><li>Ten meals a week included</li><li>Unlimited sessions</li><li>Every event, plus a guest</li><li>Chef's table priority</li></ul>
+      <a class="btn" href="#">Apply for Full Club</a>
+    </div>
+  </div>
+</section>
+
+<div class="wide reveal"><img src="img/group.webp" alt="Mika Club members in front of a red backdrop"></div>
+<div class="wcap cap"><span>The members, autumn 2026</span><span>Photographed at the Maashaven studio</span></div>
+
+<section class="close">
+  <h2 class="serif reveal">See you<br><em>Thursday.</em></h2>
+  <form onsubmit="event.preventDefault();this.querySelector('button').textContent='On the list ✓'"><input type="email" placeholder="Your email for the next opening" aria-label="Email"><button class="cap" type="submit">Join the list ↗</button></form>
+</section>
+
+<footer class="cap">
+  <div class="big"><svg class="wm" viewBox="0 0 2818 875"><use href="#wl"/></svg></div>
+  <div class="row"><span>© 2026 Mika Club · Maashaven Oostzijde 12, Rotterdam</span><span><a class="ul" href="#">Instagram</a> · <a class="ul" href="#">Strava club</a> · <a class="ul" href="#">hello@mika.club</a></span></div>
+</footer>
+
+<nav class="optbar"><a href="directions.html">All</a><a class="on" href="a.html">A · Journal</a><a href="b.html">B · Red room</a><a href="c.html">C · Index</a></nav>
+<script src="js/base.js"></script>
+</body>
+</html>
